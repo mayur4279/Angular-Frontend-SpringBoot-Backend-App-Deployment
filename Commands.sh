@@ -55,3 +55,4 @@ COPY --from=build  /usr/local/app/dist/angular-ecommerce  /usr/share/nginx/html
 
 EXPOSE 4200  
 
+

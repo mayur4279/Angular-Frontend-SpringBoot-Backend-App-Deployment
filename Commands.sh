@@ -26,9 +26,6 @@ sudo mvn clean package -Dmaven.test.skip=true
 
 
 
-
-
-
 # Building Docker images  
 ng new demo-app  # for creating new angular application  
 # what is dockerfile?  

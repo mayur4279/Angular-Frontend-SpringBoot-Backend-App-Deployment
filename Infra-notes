@@ -1,0 +1,92 @@
+variables.tf	
+Perpose: Defines variables, types, and optionally default values.	
+Function: Describes the inputs that Terraform needs.
+
+terraform.tfvars    (.tfvars (runtime files))  
+Perpose: Supplies values to variables at runtime.
+Function: Assigns the actual values for those inputs.
+
+git restore --staged 4-Infra-With-Code/.terraform*
+
+                       
+1) Root Module (Main Directory)  
+
+terraform/
+│
+├── main.tf
+├── variables.tf
+├── outputs.tf
+└── modules/                # Directory for child modules
+     ├── vpc/               # Example of a custom module (VPC)
+     ├── ec2/               # Example of a custom module (EC2)
+     ├── s3/                # Example of a custom module (S3)
+
+
+
+2) Module Directory Structure 
+
+modules/
+└── ec2/
+     ├── main.tf            # Define EC2 resources
+     ├── variables.tf       # Input variables for EC2 resources
+     ├── outputs.tf         # Output the created instance IDs, etc.
+     ├── locals.tf          # Define any local variables
+     └── provider.tf        # Specify AWS provider (if needed)
+
+
+## In the main.tf of the EC2 module, you may define resources like: 
+
+resource "aws_instance" "app" {
+  ami           = var.ami_id
+  instance_type = var.instance_type
+  tags = {
+    Name = "AppInstance"
+  }
+}   
+
+
+
+## Calling a module of main.tf file  
+
+module "vpc" {
+  source = "./modules/vpc"             # Path to the VPC module
+  cidr_block = "10.0.0.0/16"
+  public_subnets = ["10.0.1.0/24"]
+}
+
+module "ec2" {
+  source         = "./modules/ec2"      # Path to the EC2 module
+  ami_id         = "ami-12345678"
+  instance_type  = "t2.micro"
+  vpc_id         = module.vpc.vpc_id    # Reference output from VPC module
+}
+
+
+
+
+
+3) Advance concept 
+
+environment Specific modules.  
+
+environments/
+├── dev/
+│   ├── main.tf
+│   └── terraform.tfvars
+├── prod/
+│   ├── main.tf
+│   └── terraform.tfvars
+└── modules/                # Shared modules for both environments
+
+
+In each environment, you can reference shared modules and provide different variables through terraform.tfvars files, such as:
+
+# dev/terraform.tfvars
+instance_type = "t2.micro"
+region        = "us-east-1"
+
+# prod/terraform.tfvars
+instance_type = "m5.large"
+region        = "us-west-2"
+
+

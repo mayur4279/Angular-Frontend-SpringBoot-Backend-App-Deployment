@@ -11,14 +11,10 @@ pipeline {
 
         stage('Build') {
             steps { 
-                sh 'echo  "Angular artifact building is complete" ' 
-            }
-
-            steps { 
-                sh 'echo  "Spring Boot artifact building is complete" ' 
+                sh 'echo  "Angular artifact building is complete" '
+                sh 'echo  "Spring-Boot artifact building is complete" '
             }
         }
-
 
         stage('Test') {
             steps { 
@@ -32,10 +28,10 @@ pipeline {
                 sh 'sudo systemctl start docker '
                 sh 'sudo systemctl enable docker ' 
             }
-
         }
-
     }
 }
+
+
 
 

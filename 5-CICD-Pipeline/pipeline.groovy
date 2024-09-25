@@ -4,7 +4,7 @@ pipeline {
 
     tools {
         maven 'install-maven' 
-        docker 'docker'
+        dockerTool 'docker'
     }
     stages {
         stage('Pull') {
@@ -16,12 +16,9 @@ pipeline {
         stage('Build') {
             steps { 
                 sh 'echo  "Angular artifact building is started" '
-                
+                sh 'cd 1-Angular-Frontend'
+                sh 'sudo mvn clean package -Dmaven.test.skip=true'
 
-
-
-
-                sh 'echo  "Spring-Boot artifact building is complete" '
             }
         }
 

@@ -18,7 +18,7 @@ pipeline {
                 sh 'echo  "Spring Boot artifact building is started" '
                 sh '''cd 2-SpringBoot-Backend
                     mvn clean package -Dmaven.test.skip=true '''
-
+                sh 'ls'
             }
         }
 

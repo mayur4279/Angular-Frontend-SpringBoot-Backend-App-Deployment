@@ -1,17 +1,26 @@
 pipeline {
     agent any
+    
 
+    tools {
+        maven 'install-maven' 
+        docker 'docker'
+    }
     stages {
         stage('Pull') {
             steps {
-                sh 'yum install git -y  '
                 git branch: 'main', url: 'https://github.com/mayur4279/Angular-Frontend-SpringBoot-Backend-App-Deployment'
             }
         }
 
         stage('Build') {
             steps { 
-                sh 'echo  "Angular artifact building is complete" '
+                sh 'echo  "Angular artifact building is started" '
+                
+
+
+
+
                 sh 'echo  "Spring-Boot artifact building is complete" '
             }
         }

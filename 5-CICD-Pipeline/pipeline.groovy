@@ -15,8 +15,8 @@ pipeline {
 
         stage('Build') {
             steps { 
-                sh 'echo  "Angular artifact building is started" '
-                sh '''cd 1-Angular-Frontend
+                sh 'echo  "Spring Boot artifact building is started" '
+                sh '''cd 2-SpringBoot-Backend
                     mvn clean package -Dmaven.test.skip=true '''
 
             }

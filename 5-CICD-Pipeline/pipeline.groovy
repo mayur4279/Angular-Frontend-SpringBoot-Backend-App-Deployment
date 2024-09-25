@@ -31,9 +31,9 @@ pipeline {
         stage('Deploy') {
             steps { 
                 sh 'docker --version'
-                sh 'systemctl start docker'
-                sh 'systemctl enable docker'
-                sh 'docker pull nginx'
+                sh 'sudo systemctl start docker'
+                sh 'sudo systemctl enable docker'
+                sh 'sudo docker pull nginx'
             }
         }
     }

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-app
+spec:
+  selector:
+    matchLabels:
+      app: mysql-app
+  template:
+    metadata:
+      labels:
+        app: mysql-app
+    spec:
+      containers:
+      - name: mysql-app
+        image: mayur4279/angular-app:mysql
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3306

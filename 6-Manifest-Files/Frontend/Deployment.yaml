@@ -13,12 +13,12 @@ spec:
     spec:
       containers:
       - name: angular-pod
-        image: mayur4279/angular-project-frontend
+        image: mayur4279/angular-app:angular
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 8444  
+        - containerPort: 80
 
     

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-backend
+spec:
+  selector:
+    matchLabels:
+      app: spring-backend
+  template:
+    metadata:
+      labels:
+        app: spring-backend
+    spec:
+      containers:
+      - name: spring-backend
+        image: mayur4279/angular-app:springboot
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080 

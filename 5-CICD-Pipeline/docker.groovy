@@ -51,9 +51,9 @@ pipeline {
 
         stage('Deploy to container') {
             steps { 
-                sh 'docker rm angular || true '
-                sh 'docker rm springboot || true '
-                sh 'docker rm mysql || true'
+                sh 'docker rm -f angular || true '
+                sh 'docker rm -f springboot || true '
+                sh 'docker rm -f mysql || true'
 
                 sh 'docker run  -d  --name angular -p 80:80 --rm mayur4279/docker-angular:angular   '
                 sh 'docker run  -d  --name springboot -p 8081:8080 --rm mayur4279/docker-angular:springboot  '

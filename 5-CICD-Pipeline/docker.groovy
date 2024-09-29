@@ -52,7 +52,7 @@ pipeline {
         stage('Deploy to container') {
             steps { 
                 sh 'docker run  -d  -p 80:80 mayur4279/docker-angular:angular  --name angular  --rm '
-                sh 'docker run  -d  -p 8080:8080 mayur4279/docker-angular:springboot  --name springboot  --rm '
+                sh 'docker run  -d  -p 8080:8081 mayur4279/docker-angular:springboot  --name springboot  --rm '
                 sh 'docker run  -d  -p 3306:3306 mayur4279/docker-angular:mysql  --name angular  --rm '
             }
         }

@@ -11,7 +11,8 @@ sudo systemctl start jenkins
 
 cat /var/lib/jenkins/secrets/initialAdminPassword | tee -a /tmp/jenkins_password 
 
-
-
-
-
+sudo yum install docker -y 
+sudo systemctl start docker 
+sudo systemctl enable docker 
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins

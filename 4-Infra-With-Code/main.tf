@@ -52,13 +52,13 @@ module "ec2_instance_creating" {
 
 
 
-module "s3-bucket" {
-  source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "4.1.2"
-  bucket = "mayurrandombucket4279"
-  block_public_acls = false
-  block_public_policy = false 
-}
+# module "s3-bucket" {
+#   source  = "terraform-aws-modules/s3-bucket/aws"
+#   version = "4.1.2"
+#   bucket = "mayurrandombucket4279"
+#   block_public_acls = false
+#   block_public_policy = false 
+# }
 
 
 
@@ -67,8 +67,10 @@ output "aws_instance_ip" {
 }
 
 
-output "bucket" {
-  value= module.s3-bucket.s3_bucket_website_endpoint
-}
+
+
+# output "bucket" {
+#   value= module.s3-bucket.s3_bucket_website_endpoint
+# }
 
 

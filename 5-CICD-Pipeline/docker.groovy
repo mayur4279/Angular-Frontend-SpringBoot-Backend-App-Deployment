@@ -11,7 +11,7 @@ pipeline {
         stage('Angular build') {
             steps {  
                 script {
-                     withDockerRegistry(credentialsId: 'docker-crd') {
+                     withDockerRegistry(credentialsId: 'docker-cred') {
                             sh '''docker build  -t "mayur4279/docker-angular:angular"  ./1-Angular-Frontend 
                                   docker push mayur4279/docker-angular:angular'''
                      }    
@@ -22,7 +22,7 @@ pipeline {
         stage('springboot build') {
             steps {  
                 script {
-                     withDockerRegistry(credentialsId: 'docker-crd') {
+                     withDockerRegistry(credentialsId: 'docker-cred') {
                             sh '''  docker build  -t "mayur4279/docker-angular:springboot"  ./2-SpringBoot-Backend 
                                     docker push mayur4279/docker-angular:springboot'''
                      }    
@@ -33,7 +33,7 @@ pipeline {
         stage('mysql build') {
             steps {  
                 script {
-                     withDockerRegistry(credentialsId: 'docker-crd') {
+                     withDockerRegistry(credentialsId: 'docker-cred') {
                             sh ''' docker build  -t "mayur4279/docker-angular:mysql"  ./3-Mysql-Backend 
                                    docker push mayur4279/docker-angular:mysql'''
                      }    

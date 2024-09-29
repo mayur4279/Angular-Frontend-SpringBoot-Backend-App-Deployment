@@ -1,6 +1,7 @@
 CREATE USER 'ecommerceapp'@'localhost' IDENTIFIED BY 'ecommerceapp';
 
-GRANT ALL PRIVILEGES ON *.* TO 'ecommerceapp'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'ecommerceapp'@'%' WITH GRANT OPTION;
 
-FLUSH PRIVILEGES;   
+FLUSH PRIVILEGES;
+
 

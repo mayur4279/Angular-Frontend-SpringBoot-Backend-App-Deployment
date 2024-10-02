@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: angular-pod
-        image: mayur4279/angular-app:angular
+        image: mayur4279/docker-angular:angular
         resources:
           limits:
             memory: "128Mi"

@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: spring-backend
-        image: mayur4279/angular-app:springboot
+        image: mayur4279/docker-angular:springboot
         resources:
           limits:
             memory: "128Mi"

@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: mysql-app
-        image: mayur4279/angular-app:mysql
+        image: mayur4279/docker-angular:mysql
         resources:
           limits:
             memory: "128Mi"
